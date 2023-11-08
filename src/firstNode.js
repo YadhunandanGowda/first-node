@@ -5,17 +5,15 @@ const bodyParser = require("body-parser");
 const app = express();
 const router = express.Router();
 
-require("dotenv").config();
-
-const portNumber = process.env.PORT;
+// const portNumber = process.env.PORT;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.listen(portNumber, (err) => {
-  if (err) console.log("Error in server setup");
-  console.log("Server listening on Port:", portNumber);
-});
+// app.listen(portNumber, (err) => {
+//   if (err) console.log("Error in server setup");
+//   console.log("Server listening on Port:", portNumber);
+// });
 
 // respond with "hello world" when a GET request is made to the homepage
 router.get("/", function (req, res) {
@@ -23,10 +21,10 @@ router.get("/", function (req, res) {
     developer: "Yadhunandana Gowda B S",
     from: "Mysuru",
   };
-  res.send(respo);
+  res.json(respo);
 });
 
-router.post("/post", (req, res) => {
+router.post("/reverse", (req, res) => {
   console.log(req.body.name);
   res.send([...req.body.name].reverse().join(""));
 });

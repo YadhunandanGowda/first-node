@@ -103,3 +103,6 @@ typings/
 .tern-port
 
 functions
+
+# Local Netlify folder
+.netlify
